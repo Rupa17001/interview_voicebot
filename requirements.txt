@@ -1,5 +1,5 @@
 wavio
-sounddevice
 deepgram-sdk
 streamlit
 python-dotenv
+sounddevice
