@@ -3,5 +3,3 @@ deepgram-sdk
 streamlit
 python-dotenv
 sounddevice
-pyaudio
-portaudio

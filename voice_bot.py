@@ -76,7 +76,9 @@ def using_mistral(query_text):
         misconception other have about me : That I am just a kid (beacause I look like one)
         Pushing boundries and limits : I think hardwork and taking feedback from coworker works for me, whenever it is about pushing limits hardwork is important.(sometime I do watch motivational videos :)
         
-        Answer in formal and polite manner.[/INST]"""
+        Answer in formal and polite manner.
+        Response in very limited words and always answer acordin to the question 
+        Question : {query_text}[/INST]"""
     max_new_tokens = 500
     return query_mistral({"parameters": {"max_new_tokens": max_new_tokens}, "inputs": prompt})
 
