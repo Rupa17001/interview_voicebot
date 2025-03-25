@@ -129,9 +129,9 @@ from dotenv import load_dotenv
 import requests
 import wave
 import uuid
-from audio_recorder_streamlit import audio_recorder  # ✅ Use Streamlit-compatible recorder
+from audio_recorder_streamlit import audio_recorder 
 
-# Load environment variables
+
 load_dotenv()
 
 deep_api = os.getenv("DEEPGRAM_API_KEY", "").strip()
@@ -141,9 +141,9 @@ print(deep_api)
 # Function to save raw bytes as WAV
 def save_wav_file(file_path, wav_bytes):
     with wave.open(file_path, 'wb') as wav_file:
-        wav_file.setnchannels(1)  # ✅ Mono channel
-        wav_file.setsampwidth(2)  # ✅ Sample width 16-bit
-        wav_file.setframerate(44100)  # ✅ Sample rate 44.1kHz
+        wav_file.setnchannels(1) 
+        wav_file.setsampwidth(2)  
+        wav_file.setframerate(44100)  
         wav_file.writeframes(wav_bytes)
 
 def stt(audio_file):
@@ -183,7 +183,7 @@ def query_mistral(payload):
         return None
 
 def using_mistral(query_text):
-    prompt = f"""[INST] You are an assistant named Rupa and you are sitting in an interview. You have to answer the question from given data only...
+    prompt = f"""[INST] You are Rupa and you are sitting in an interview. You have to answer the question from given data only...
         Question : {query_text}[/INST]"""
     
     max_new_tokens = 500
@@ -202,12 +202,12 @@ def tts(speak_text, filename):
 def main():
     st.title("AI Interview Candidate Voice Bot")
     
-    # ✅ Record audio using Streamlit's `audio_recorder`
+    # Record audio using audio_recorder
     voice_input = audio_recorder(pause_threshold=2.5, sample_rate=44100)
 
     if voice_input:
         audio_path = f"input/audio_{uuid.uuid4().hex}.wav"
-        save_wav_file(audio_path, voice_input)  # ✅ Save audio data as WAV
+        save_wav_file(audio_path, voice_input)  
         st.success(f"Audio recorded: {audio_path}")
         
         st.write("Processing...")
