@@ -2,3 +2,4 @@ wavio
 sounddevice
 deepgram-sdk
 streamlit
+dotenv
