@@ -109,12 +109,13 @@ def main():
         
         if transcribed_text:
             st.write("**Transcribed Text:**", transcribed_text)
-            response_text = using_mistral(transcribed_text)
-            print(response_text)
+            with st.spinner("Processing..."):
+                response_text = using_mistral(transcribed_text)
+                print(response_text)
             
             if response_text:
-                with st.spinner("Processing..."):
-                    st.write("**AI Response:**", response_text)
+               
+                st.write("**AI Response:**", response_text)
                 
                 audio_response_path = "output/response.mp3"
                 tts(response_text, audio_response_path)
